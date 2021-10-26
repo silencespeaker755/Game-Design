@@ -5,6 +5,7 @@ using Platformer.Gameplay;
 using static Platformer.Core.Simulation;
 using Platformer.Model;
 using Platformer.Core;
+using TMPro;
 
 namespace Platformer.Mechanics
 {
@@ -33,6 +34,8 @@ namespace Platformer.Mechanics
         /*internal new*/ public AudioSource audioSource;
         public Health health;
         public bool controlEnabled = true;
+
+        [SerializeField] public TMP_Text _life;
 
         bool jump;
         Vector2 move;
@@ -69,6 +72,7 @@ namespace Platformer.Mechanics
                 move.x = 0;
             }
             UpdateJumpState();
+            UpdateRoleState();
             base.Update();
         }
 
@@ -100,6 +104,11 @@ namespace Platformer.Mechanics
                     jumpState = JumpState.Grounded;
                     break;
             }
+        }
+
+        void UpdateRoleState()
+        {
+            _life.SetText("{0}", health.currentHP);
         }
 
         protected override void ComputeVelocity()
