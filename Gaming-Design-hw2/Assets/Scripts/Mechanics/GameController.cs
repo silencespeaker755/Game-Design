@@ -27,7 +27,7 @@ namespace Platformer.Mechanics
 
         private void Start()
         {
-            Debug.Log(MenuBehaviour.score);
+            passTime = 0.0f;
         }
 
         void OnEnable()
