@@ -33,9 +33,11 @@ namespace Platformer.Mechanics
         /*internal new*/ public Collider2D collider2d;
         /*internal new*/ public AudioSource audioSource;
         public Health health;
+        private int point = 0;
         public bool controlEnabled = true;
 
-        [SerializeField] public TMP_Text _life;
+        [SerializeField] private TMP_Text _life;
+        [SerializeField] private TMP_Text _point;
 
         bool jump;
         Vector2 move;
@@ -44,6 +46,11 @@ namespace Platformer.Mechanics
         readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
 
         public Bounds Bounds => collider2d.bounds;
+
+        public void AddPoint()
+        {
+            point++;
+        }
 
         void Awake()
         {
@@ -109,6 +116,7 @@ namespace Platformer.Mechanics
         void UpdateRoleState()
         {
             _life.SetText("{0}", health.currentHP);
+            _point.SetText("{0}", point);
         }
 
         protected override void ComputeVelocity()

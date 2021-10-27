@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using Platformer.Gameplay;
 
 namespace Platformer.Mechanics
 {
     public class BoxController : MonoBehaviour
     {
+        [SerializeField] private TileBase tileBase;
+        [SerializeField] private TileBase tileHead;
+        [SerializeField] private Tilemap tileMap;
+
         public bool moving = false;
         internal Vector2 initPosition;
         // Start is called before the first frame update
@@ -24,6 +29,11 @@ namespace Platformer.Mechanics
         {
             if (!moving) {
                 moving = true;
+                for(int i = 0;i < 18; i++)
+                {
+                    tileMap.SetTile(new Vector3Int(131 + i, -13, 0), tileBase);
+                    tileMap.SetTile(new Vector3Int(131 + i, -12, 0), tileHead);
+                }
             }
         }
 
