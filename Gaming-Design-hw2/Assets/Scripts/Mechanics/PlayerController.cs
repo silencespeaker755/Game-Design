@@ -33,7 +33,7 @@ namespace Platformer.Mechanics
         /*internal new*/ public Collider2D collider2d;
         /*internal new*/ public AudioSource audioSource;
         public Health health;
-        private int point = 0;
+        public static int point = 0;
         public bool controlEnabled = true;
 
         [SerializeField] private TMP_Text _life;

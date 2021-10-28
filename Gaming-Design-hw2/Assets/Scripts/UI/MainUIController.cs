@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Platformer.Mechanics;
 
 namespace Platformer.UI
 {
@@ -10,6 +11,8 @@ namespace Platformer.UI
     public class MainUIController : MonoBehaviour
     {
         public GameObject[] panels;
+
+        public int score;
 
         public void SetActivePanel(int index)
         {
