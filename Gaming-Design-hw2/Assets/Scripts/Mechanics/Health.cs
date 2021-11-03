@@ -42,7 +42,6 @@ namespace Platformer.Mechanics
                 var ev = Schedule<HealthIsZero>();
                 ev.health = this;
             }
-            Debug.Log(currentHP);
         }
 
         public void Reborn()

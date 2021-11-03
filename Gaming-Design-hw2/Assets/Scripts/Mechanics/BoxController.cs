@@ -11,6 +11,7 @@ namespace Platformer.Mechanics
         [SerializeField] private TileBase tileBase;
         [SerializeField] private TileBase tileHead;
         [SerializeField] private Tilemap tileMap;
+        [SerializeField] public AudioClip hitSound;
 
         public bool moving = false;
         internal Vector2 initPosition;
@@ -28,8 +29,9 @@ namespace Platformer.Mechanics
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if (!moving) {
+                if (GetComponent<AudioSource>() != null) GetComponent<AudioSource>().PlayOneShot(hitSound);
                 moving = true;
-                for(int i = 0;i < 18; i++)
+                for (int i = 0;i < 18; i++)
                 {
                     tileMap.SetTile(new Vector3Int(131 + i, -13, 0), tileBase);
                     tileMap.SetTile(new Vector3Int(131 + i, -12, 0), tileHead);

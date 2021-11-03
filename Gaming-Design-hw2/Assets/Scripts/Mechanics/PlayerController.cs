@@ -33,7 +33,7 @@ namespace Platformer.Mechanics
         /*internal new*/ public Collider2D collider2d;
         /*internal new*/ public AudioSource audioSource;
         public Health health;
-        public static int point = 0;
+        public int point = 0;
         public bool controlEnabled = true;
 
         [SerializeField] private TMP_Text _life;
@@ -59,6 +59,7 @@ namespace Platformer.Mechanics
             collider2d = GetComponent<Collider2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
+            point = 0;
         }
 
         protected override void Update()

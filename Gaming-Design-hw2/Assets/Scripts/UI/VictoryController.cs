@@ -18,6 +18,6 @@ public class VictoryController : MonoBehaviour
     void Update()
     {
         time.SetText(string.Format("Total Cost Time:     {0}",FindObjectOfType<GameController>()._passTime.text));
-        score.SetText("Final Score:                 {0}", PlayerController.point);
+        score.SetText("Final Score:                 {0}", FindObjectOfType<PlayerController>().point);
     }
 }
